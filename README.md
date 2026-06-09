@@ -104,7 +104,29 @@ cp -r report-review work ./.claude/skills/
 
 ## Configuration
 
-Replace `{{HISTORY_DIR}}` in `work/references/work-review.md` with your actual historical records directory (e.g. `~/Documents/work/`), used for cross-project comparison.
+### work skill
+
+Before using the `work` skill, replace `{{HISTORY_DIR}}` in `work/SKILL.md` and `work/references/work-review.md` with your actual historical records directory.
+
+**Expected directory structure** (customizable):
+
+```
+{{HISTORY_DIR}}/
+├── [past project docs, outputs, decisions]
+├── reviews/
+│   └── [past review reports]
+└── profile.md          # optional: your working patterns
+```
+
+**Example**:
+
+```bash
+# macOS/Linux
+sed -i '' 's|{{HISTORY_DIR}}|~/Documents/work|g' work/SKILL.md work/references/work-review.md
+
+# Windows (Git Bash)
+sed -i 's|{{HISTORY_DIR}}|/c/Users/you/Documents/work|g' work/SKILL.md work/references/work-review.md
+```
 
 ---
 
