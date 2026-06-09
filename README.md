@@ -51,9 +51,9 @@ Only intervenes at two moments: task kickoff and closeout.
 **What it does:**
 
 1. **Kickoff**: Locks in a verifiable task definition (MVP) before you start, writing it to `工作计划*.md` in the project directory.
-2. **Closeout**: Reads historical records, compares decision chains, identifies blind spots, and outputs feedforward rules — appended to the same file.
+2. **Closeout**: Based on current project files and conversation context, reviews the decision chain, identifies blind spots, and outputs feedforward rules — presented only in the conversation, no file output.
 
-**It does NOT do**: daily to-do lists, time planning, or execute specific technical tasks.
+**It does NOT do**: daily to-do lists, time planning, external directory access, or execute specific technical tasks.
 
 **Triggers:**
 
@@ -98,34 +98,6 @@ cp -r report-review work ~/.claude/skills/
 
 # Project-level installation
 cp -r report-review work ./.claude/skills/
-```
-
----
-
-## Configuration
-
-### work skill
-
-Before using the `work` skill, replace `{{HISTORY_DIR}}` in `work/SKILL.md` and `work/references/work-review.md` with your actual historical records directory.
-
-**Expected directory structure** (customizable):
-
-```
-{{HISTORY_DIR}}/
-├── [past project docs, outputs, decisions]
-├── reviews/
-│   └── [past review reports]
-└── profile.md          # optional: your working patterns
-```
-
-**Example**:
-
-```bash
-# macOS/Linux
-sed -i '' 's|{{HISTORY_DIR}}|~/Documents/work|g' work/SKILL.md work/references/work-review.md
-
-# Windows (Git Bash)
-sed -i 's|{{HISTORY_DIR}}|/c/Users/you/Documents/work|g' work/SKILL.md work/references/work-review.md
 ```
 
 ---
